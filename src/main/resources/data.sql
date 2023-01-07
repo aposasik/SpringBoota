@@ -1,0 +1,1 @@
+/* Insert initial data for the db */

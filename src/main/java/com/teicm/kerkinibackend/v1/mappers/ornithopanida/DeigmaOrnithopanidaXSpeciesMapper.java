@@ -1,0 +1,13 @@
+package com.teicm.kerkinibackend.v1.mappers.ornithopanida;
+
+import com.teicm.kerkinibackend.domain.ornithopanida.DeigmaOrnithopanidaXSpecies;
+import com.teicm.kerkinibackend.v1.models.ornithopanida.DeigmaOrnithopanidaXSpeciesAutocompletesDTO;
+import com.teicm.kerkinibackend.v1.models.ornithopanida.DeigmaOrnithopanidaXSpeciesDTO;
+
+import java.util.ArrayList;
+
+public interface DeigmaOrnithopanidaXSpeciesMapper {
+    DeigmaOrnithopanidaXSpecies deigmaOrnithopanidaXSpeciesTOdeigmaOrnithopanidaXSpeciesDTO(DeigmaOrnithopanidaXSpeciesDTO deigmaOrnithopanidaXSpeciesDTO);
+    DeigmaOrnithopanidaXSpeciesDTO deigmaOrnithopanidaXSpeciesDTOTOdeigmaOrnithopanidaXSpecies(DeigmaOrnithopanidaXSpecies deigmaOrnithopanidaXSpecies);
+    DeigmaOrnithopanidaXSpeciesAutocompletesDTO mapListsToDeigmaOrnithopanidaXSpeciesAutocompletesDTO(ArrayList<Long> deigmataOrnithopanidasidList, ArrayList<String>CtkodikoseidosList, ArrayList<Long>kodikosList, ArrayList<Long>aadeigmatosList, ArrayList<String>fuloList, ArrayList<String>hliakiaList, ArrayList<String>arithmosatomonList);
+}
