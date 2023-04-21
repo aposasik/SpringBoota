@@ -1,7 +1,6 @@
 package com.teicm.kerkinibackend.domain.thhlastika;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.util.Comparator;
 import java.util.HashSet;

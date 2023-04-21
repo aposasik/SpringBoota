@@ -3,10 +3,7 @@ package com.teicm.kerkinibackend.v1.mappers.ornithopanida;
 import com.teicm.kerkinibackend.domain.ornithopanida.DeigmaOrnithopanidaXPresAndThreats;
 import com.teicm.kerkinibackend.v1.models.ornithopanida.DeigmaOrnithopanidaXPresAndThreatsAutocompletesDTO;
 import com.teicm.kerkinibackend.v1.models.ornithopanida.DeigmaOrnithopanidaXPresAndThreatsDTO;
-import com.teicm.kerkinibackend.v1.models.thhlastika.DeigmaThhlastikwnXPressThreatsAutocompletesDTO;
 import org.springframework.stereotype.Component;
-
-import java.math.BigInteger;
 import java.util.ArrayList;
 
 @Component

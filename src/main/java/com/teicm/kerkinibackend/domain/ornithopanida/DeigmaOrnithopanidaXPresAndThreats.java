@@ -1,11 +1,6 @@
 package com.teicm.kerkinibackend.domain.ornithopanida;
 
-
-import com.teicm.kerkinibackend.domain.thhlastika.CtThhlastikaPressThreats;
-import com.teicm.kerkinibackend.domain.thhlastika.DeigmaThhlastikwn;
-
 import javax.persistence.*;
-
 
 @Entity
 

@@ -4,7 +4,6 @@ import com.teicm.kerkinibackend.v1.models.SearchCriteria;
 import com.teicm.kerkinibackend.domain.thhlastika.CtThhlastikaPressThreats;
 import com.teicm.kerkinibackend.v1.models.thhlastika.CtThhlastikaPressThreatsSearchDTO;
 import org.springframework.stereotype.Repository;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;

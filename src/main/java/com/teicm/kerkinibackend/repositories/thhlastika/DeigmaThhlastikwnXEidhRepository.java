@@ -8,13 +8,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Set;
 
 @Repository
-public interface DeigmaThhlastikwnXEidhRepository extends CrudRepository<DeigmaThhlastikwnXEidh, Long>, JpaRepository<DeigmaThhlastikwnXEidh, Long>, org.springframework.data.repository.Repository<DeigmaThhlastikwnXEidh, Long> {
+public interface DeigmaThhlastikwnXEidhRepository
+        extends CrudRepository<DeigmaThhlastikwnXEidh, Long>, JpaRepository<DeigmaThhlastikwnXEidh, Long>,
+        org.springframework.data.repository.Repository<DeigmaThhlastikwnXEidh, Long> {
 
     Set<DeigmaThhlastikwnXEidh> findDeigmaThhlastikwnXEidhByDeigmaThhlastikwnIs(DeigmaThhlastikwn deigmaThhlastikwn);
 
@@ -41,8 +42,10 @@ public interface DeigmaThhlastikwnXEidhRepository extends CrudRepository<DeigmaT
     @Query(nativeQuery = true, value = "SELECT DISTINCT deigmax.fulo from deigma_thhlastikwnxeidh deigmax WHERE deigmax.fulo IS NOT NULL ORDER BY fulo ASC")
     ArrayList<String> findDistinctByFuloOrderByFulo();
 
-    // Plhthos is going to be given from the user in ">" "<" style with the wanted number of plhthos.
+    // Plhthos is going to be given from the user in ">" "<" style with the wanted
+    // number of plhthos.
 
-    // EokParII, IV, V are going to be given from the user as "true" or "false" inputs.
+    // EokParII, IV, V are going to be given from the user as "true" or "false"
+    // inputs.
 
 }

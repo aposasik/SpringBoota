@@ -4,7 +4,6 @@ import com.teicm.kerkinibackend.v1.models.SearchCriteria;
 import com.teicm.kerkinibackend.domain.thhlastika.DeigmaThhlastikwn;
 import com.teicm.kerkinibackend.v1.models.thhlastika.DeigmaThhlastikwnSearchDTO;
 import org.springframework.stereotype.Repository;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -36,11 +35,11 @@ public class DeigmaThhlastikwnSearchRepository {
         try {
             for (SearchCriteria param : searchCriteriaList) {
                 if (param.getOperation().equalsIgnoreCase(">")) {
-                    if (param.getKey().equals("date")){
+                    if (param.getKey().equals("date")) {
                         LocalDate localDate = LocalDate.parse((CharSequence) param.getValue());
 
                         predicate = builder.greaterThanOrEqualTo(root.get(param.getKey()), localDate);
-                    }else if (param.getKey().equals("time")){
+                    } else if (param.getKey().equals("time")) {
                         LocalTime localTime = LocalTime.parse((CharSequence) param.getValue());
 
                         predicate = builder.greaterThanOrEqualTo(root.get(param.getKey()), localTime);
@@ -50,11 +49,11 @@ public class DeigmaThhlastikwnSearchRepository {
                     predicatesAndList = builder.and(predicatesAndList, predicate);
 
                 } else if (param.getOperation().equalsIgnoreCase("<")) {
-                    if (param.getKey().equals("date")){
+                    if (param.getKey().equals("date")) {
                         LocalDate localDate = LocalDate.parse((CharSequence) param.getValue());
 
                         predicate = builder.lessThanOrEqualTo(root.get(param.getKey()), localDate);
-                    }else if (param.getKey().equals("time")){
+                    } else if (param.getKey().equals("time")) {
                         LocalTime localTime = LocalTime.parse((CharSequence) param.getValue());
 
                         predicate = builder.lessThanOrEqualTo(root.get(param.getKey()), localTime);
@@ -71,7 +70,7 @@ public class DeigmaThhlastikwnSearchRepository {
                     ArrayList<Predicate> predsOrList = new ArrayList<>();
 
                     // Regex checking for multiple values
-//                    Pattern pattern = Pattern.compile("(\\w+[(!-/. ?\\w+)]+)");
+                    // Pattern pattern = Pattern.compile("(\\w+[(!-/. ?\\w+)]+)");
                     Pattern pattern = Pattern.compile("([(!-/.: 0-9\\p{L})]+)");
 
                     Matcher matcher = pattern.matcher((CharSequence) param.getValue());
@@ -82,26 +81,27 @@ public class DeigmaThhlastikwnSearchRepository {
                     }
 
                     if (matchesList.size() > 0) {
-                        // Not allowing for localDate or localTime because they should use '<' '>' ( greater equal, less equal ) instead.
+                        // Not allowing for localDate or localTime because they should use '<' '>' (
+                        // greater equal, less equal ) instead.
                         // Checking for String
                         if (root.get(param.getKey()).getJavaType() == String.class) {
-                            for (Object match: matchesList) {
+                            for (Object match : matchesList) {
                                 predicate = builder.equal(root.get(param.getKey()),
                                         match.toString());
                                 predsOrList.add(predicate);
                             }
-                            predsOrParam = builder.or( predsOrList.toArray(new Predicate[predsOrList.size()]));
-                        // Checking for Double
-                        } else if (root.get(param.getKey()).getJavaType() == Double.class){
-                            for (Object match: matchesList) {
+                            predsOrParam = builder.or(predsOrList.toArray(new Predicate[predsOrList.size()]));
+                            // Checking for Double
+                        } else if (root.get(param.getKey()).getJavaType() == Double.class) {
+                            for (Object match : matchesList) {
                                 predicate = builder.equal(root.get(param.getKey()),
                                         match);
                                 predsOrList.add(predicate);
                             }
-                            predsOrParam = builder.or( predsOrList.toArray(new Predicate[predsOrList.size()]));
+                            predsOrParam = builder.or(predsOrList.toArray(new Predicate[predsOrList.size()]));
                         }
                     }
-                    predAnd = builder.and( predsOrParam );
+                    predAnd = builder.and(predsOrParam);
                     predicatesAndList = builder.and(predicatesAndList, predAnd);
                 }
             }
@@ -111,7 +111,8 @@ public class DeigmaThhlastikwnSearchRepository {
         return predicatesAndList;
     }
 
-    private DeigmaThhlastikwnSearchDTO mapToDeigmaThhlastikwnSearchDTO(List<DeigmaThhlastikwn> deigmaThhlastikwnList, Long count, int size, int page, String sort ){
+    private DeigmaThhlastikwnSearchDTO mapToDeigmaThhlastikwnSearchDTO(List<DeigmaThhlastikwn> deigmaThhlastikwnList,
+            Long count, int size, int page, String sort) {
         try {
             DeigmaThhlastikwnSearchDTO deigmaThhlastikwnSearchDTO = new DeigmaThhlastikwnSearchDTO();
 
@@ -121,25 +122,26 @@ public class DeigmaThhlastikwnSearchRepository {
             deigmaThhlastikwnSearchDTO.setDeigmaThhlastikwnList(deigmaThhlastikwnList);
             deigmaThhlastikwnSearchDTO.setTotalReturnedResults(deigmaThhlastikwnList.size());
             deigmaThhlastikwnSearchDTO.setSort(sort);
-            if (deigmaThhlastikwnList.size() > 0){
+            if (deigmaThhlastikwnList.size() > 0) {
                 long totalPages = (count + size - 1) / size;
 
                 deigmaThhlastikwnSearchDTO.setTotalPages((int) totalPages);
 
-                if ((deigmaThhlastikwnSearchDTO.getPage() + 1) < deigmaThhlastikwnSearchDTO.getTotalPages()){
+                if ((deigmaThhlastikwnSearchDTO.getPage() + 1) < deigmaThhlastikwnSearchDTO.getTotalPages()) {
                     deigmaThhlastikwnSearchDTO.setHasNextPage(true);
-                }else {
+                } else {
                     deigmaThhlastikwnSearchDTO.setHasNextPage(false);
                 }
 
-                if (deigmaThhlastikwnSearchDTO.getPage() == 0){
+                if (deigmaThhlastikwnSearchDTO.getPage() == 0) {
                     deigmaThhlastikwnSearchDTO.setHasPreviousPage(false);
-                } else if ((deigmaThhlastikwnSearchDTO.getTotalPages() - (deigmaThhlastikwnSearchDTO.getPage() + 1)) >= 0 ){
+                } else if ((deigmaThhlastikwnSearchDTO.getTotalPages()
+                        - (deigmaThhlastikwnSearchDTO.getPage() + 1)) >= 0) {
                     deigmaThhlastikwnSearchDTO.setHasPreviousPage(true);
-                }else {
+                } else {
                     deigmaThhlastikwnSearchDTO.setHasPreviousPage(false);
                 }
-            } else if (count > 0 ){
+            } else if (count > 0) {
                 long totalPages = (count + size - 1) / size;
 
                 deigmaThhlastikwnSearchDTO.setTotalPages((int) totalPages);
@@ -152,12 +154,13 @@ public class DeigmaThhlastikwnSearchRepository {
             }
             return deigmaThhlastikwnSearchDTO;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             throw e;
         }
     }
 
-    public DeigmaThhlastikwnSearchDTO searchDeigmataThhlastikwn(List<SearchCriteria> searchCriteriaList, int size, int page, String sort){
+    public DeigmaThhlastikwnSearchDTO searchDeigmataThhlastikwn(List<SearchCriteria> searchCriteriaList, int size,
+            int page, String sort) {
         try {
             // Initializes for the query
             CriteriaBuilder builder = entityManager.getCriteriaBuilder();
@@ -185,8 +188,7 @@ public class DeigmaThhlastikwnSearchRepository {
                     root.get("kwdikosNatura"),
                     root.get("methodosDeigmatolhpsias"),
                     root.get("parathrhseis"),
-                    root.get("nomos")
-            );
+                    root.get("nomos"));
 
             // Predicating for the query
             Predicate predicates = search(searchCriteriaList, builder, root);
@@ -195,9 +197,9 @@ public class DeigmaThhlastikwnSearchRepository {
             query.where(predicates);
 
             // Sorting of the query
-            if (sort.equals("Asc")){
+            if (sort.equals("Asc")) {
                 query.orderBy(builder.asc(root.get("id")));
-            } else if (sort.equals("Desc")){
+            } else if (sort.equals("Desc")) {
                 query.orderBy(builder.desc(root.get("id")));
             }
 
@@ -210,7 +212,6 @@ public class DeigmaThhlastikwnSearchRepository {
 
             List<DeigmaThhlastikwn> deigmaThhlastikwnList = typedQuery.getResultList();
 
-
             // Initializes the count query
             CriteriaQuery<Long> countQuery = builder.createQuery(Long.class);
             countQuery.select(builder.count(countQuery.from(DeigmaThhlastikwn.class)));
@@ -221,12 +222,12 @@ public class DeigmaThhlastikwnSearchRepository {
 
             // Mapping to the DeigmaThhlastikwnSearchDTO and returning it
             return mapToDeigmaThhlastikwnSearchDTO(deigmaThhlastikwnList, count, size, page, sort);
-        }catch (Exception e){
+        } catch (Exception e) {
             throw e;
         }
     }
 
-    public List<DeigmaThhlastikwn> downloadDeigmataThhlastikwn(List<SearchCriteria> searchCriteriaList, String sort){
+    public List<DeigmaThhlastikwn> downloadDeigmataThhlastikwn(List<SearchCriteria> searchCriteriaList, String sort) {
         try {
             // Initializes for the query
             CriteriaBuilder builder = entityManager.getCriteriaBuilder();
@@ -254,8 +255,7 @@ public class DeigmaThhlastikwnSearchRepository {
                     root.get("kwdikosNatura"),
                     root.get("methodosDeigmatolhpsias"),
                     root.get("parathrhseis"),
-                    root.get("nomos")
-            );
+                    root.get("nomos"));
 
             // Predicating for the query
             Predicate predicates = search(searchCriteriaList, builder, root);
@@ -264,9 +264,9 @@ public class DeigmaThhlastikwnSearchRepository {
             query.where(predicates);
 
             // Sorting of the query
-            if (sort.equals("Asc")){
+            if (sort.equals("Asc")) {
                 query.orderBy(builder.asc(root.get("id")));
-            } else if (sort.equals("Desc")){
+            } else if (sort.equals("Desc")) {
                 query.orderBy(builder.desc(root.get("id")));
             }
 
@@ -275,7 +275,7 @@ public class DeigmaThhlastikwnSearchRepository {
             List<DeigmaThhlastikwn> deigmaThhlastikwnList = typedQuery.getResultList();
 
             return deigmaThhlastikwnList;
-        }catch (Exception e){
+        } catch (Exception e) {
             throw e;
         }
     }

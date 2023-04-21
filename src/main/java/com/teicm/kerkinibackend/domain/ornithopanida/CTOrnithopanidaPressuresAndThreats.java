@@ -1,16 +1,12 @@
 package com.teicm.kerkinibackend.domain.ornithopanida;
 
 import javax.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.teicm.kerkinibackend.domain.thhlastika.DeigmaThhlastikwnXPressThreats;
-
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class CTOrnithopanidaPressuresAndThreats
-{
+public class CTOrnithopanidaPressuresAndThreats {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -19,7 +15,7 @@ public class CTOrnithopanidaPressuresAndThreats
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ctornithopanidaPressuresAndThreats")
     @JsonIgnore
     private Set<DeigmaOrnithopanidaXPresAndThreats> deigmaOrnithopanidaXPresAndThreatsSet = new HashSet<>();
-    
+
     @Column(name = "act_code", unique = true, length = 50, nullable = false)
     private String actCode;
 
@@ -29,14 +25,14 @@ public class CTOrnithopanidaPressuresAndThreats
     @Column(name = "remarks")
     private String remarks;
 
-
-    public CTOrnithopanidaPressuresAndThreats addXPressThreat(DeigmaOrnithopanidaXPresAndThreats deigmaOrnithopanidaXPresAndThreats) {
+    public CTOrnithopanidaPressuresAndThreats addXPressThreat(
+            DeigmaOrnithopanidaXPresAndThreats deigmaOrnithopanidaXPresAndThreats) {
         deigmaOrnithopanidaXPresAndThreats.setCtornithopanidaPressuresAndThreats(this);
         this.deigmaOrnithopanidaXPresAndThreatsSet.add(deigmaOrnithopanidaXPresAndThreats);
         return this;
     }
 
-    public void removeXPressThreats(DeigmaOrnithopanidaXPresAndThreats deigmaOrnithopanidaXPresAndThreats){
+    public void removeXPressThreats(DeigmaOrnithopanidaXPresAndThreats deigmaOrnithopanidaXPresAndThreats) {
         deigmaOrnithopanidaXPresAndThreats.setCtornithopanidaPressuresAndThreats(null);
         this.deigmaOrnithopanidaXPresAndThreatsSet.remove(deigmaOrnithopanidaXPresAndThreats);
     }
@@ -44,15 +40,16 @@ public class CTOrnithopanidaPressuresAndThreats
     public CTOrnithopanidaPressuresAndThreats() {
     }
 
-    public CTOrnithopanidaPressuresAndThreats(String actCode, String descriptionEn, String remarks, Set<DeigmaOrnithopanidaXPresAndThreats> deigmaOrnithopanidaXPresAndThreatsSet) {
+    public CTOrnithopanidaPressuresAndThreats(String actCode, String descriptionEn, String remarks,
+            Set<DeigmaOrnithopanidaXPresAndThreats> deigmaOrnithopanidaXPresAndThreatsSet) {
         this.actCode = actCode;
         this.descriptionEn = descriptionEn;
         this.remarks = remarks;
         this.deigmaOrnithopanidaXPresAndThreatsSet = deigmaOrnithopanidaXPresAndThreatsSet;
     }
 
-    public CTOrnithopanidaPressuresAndThreats(Long id,String actCode,String descriptionEn,String remarks) {
-        this.id= id;
+    public CTOrnithopanidaPressuresAndThreats(Long id, String actCode, String descriptionEn, String remarks) {
+        this.id = id;
         this.actCode = actCode;
         this.descriptionEn = descriptionEn;
         this.remarks = remarks;
@@ -94,7 +91,8 @@ public class CTOrnithopanidaPressuresAndThreats
         return deigmaOrnithopanidaXPresAndThreatsSet;
     }
 
-    public void setDeigmaOrnithopanidaXPresAndThreatsSet(Set<DeigmaOrnithopanidaXPresAndThreats> deigmaOrnithopanidaXPresAndThreatsSet) {
+    public void setDeigmaOrnithopanidaXPresAndThreatsSet(
+            Set<DeigmaOrnithopanidaXPresAndThreats> deigmaOrnithopanidaXPresAndThreatsSet) {
         this.deigmaOrnithopanidaXPresAndThreatsSet = deigmaOrnithopanidaXPresAndThreatsSet;
     }
 }

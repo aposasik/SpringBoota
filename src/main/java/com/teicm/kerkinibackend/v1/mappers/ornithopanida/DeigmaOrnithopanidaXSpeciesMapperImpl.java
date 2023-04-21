@@ -1,25 +1,22 @@
 package com.teicm.kerkinibackend.v1.mappers.ornithopanida;
 
-
 import com.teicm.kerkinibackend.domain.ornithopanida.DeigmaOrnithopanidaXSpecies;
 import com.teicm.kerkinibackend.v1.models.ornithopanida.DeigmaOrnithopanidaXSpeciesAutocompletesDTO;
 import com.teicm.kerkinibackend.v1.models.ornithopanida.DeigmaOrnithopanidaXSpeciesDTO;
 import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 
 @Component
-public class DeigmaOrnithopanidaXSpeciesMapperImpl implements DeigmaOrnithopanidaXSpeciesMapper
-{
+public class DeigmaOrnithopanidaXSpeciesMapperImpl implements DeigmaOrnithopanidaXSpeciesMapper {
     @Override
-    public DeigmaOrnithopanidaXSpecies deigmaOrnithopanidaXSpeciesTOdeigmaOrnithopanidaXSpeciesDTO(DeigmaOrnithopanidaXSpeciesDTO deigmaOrnithopanidaXSpeciesDTO)
-    {
+    public DeigmaOrnithopanidaXSpecies deigmaOrnithopanidaXSpeciesTOdeigmaOrnithopanidaXSpeciesDTO(
+            DeigmaOrnithopanidaXSpeciesDTO deigmaOrnithopanidaXSpeciesDTO) {
         if (deigmaOrnithopanidaXSpeciesDTO == null) {
             return null;
         }
         DeigmaOrnithopanidaXSpecies deigmaOrnithopanidaXSpecies = new DeigmaOrnithopanidaXSpecies();
 
-       // deigmaOrnithopanidaXSpecies.setAadeigmatos(deigmaOrnithopanidaXSpeciesDTO.getAadeigmatos());
+        // deigmaOrnithopanidaXSpecies.setAadeigmatos(deigmaOrnithopanidaXSpeciesDTO.getAadeigmatos());
         deigmaOrnithopanidaXSpecies.setOra(deigmaOrnithopanidaXSpeciesDTO.getOra());
         deigmaOrnithopanidaXSpecies.setXegsa(deigmaOrnithopanidaXSpeciesDTO.getXegsa());
         deigmaOrnithopanidaXSpecies.setYegsa(deigmaOrnithopanidaXSpeciesDTO.getYegsa());
@@ -38,16 +35,18 @@ public class DeigmaOrnithopanidaXSpeciesMapperImpl implements DeigmaOrnithopanid
     }
 
     @Override
-    public DeigmaOrnithopanidaXSpeciesDTO deigmaOrnithopanidaXSpeciesDTOTOdeigmaOrnithopanidaXSpecies(DeigmaOrnithopanidaXSpecies deigmaOrnithopanidaXSpecies) {
+    public DeigmaOrnithopanidaXSpeciesDTO deigmaOrnithopanidaXSpeciesDTOTOdeigmaOrnithopanidaXSpecies(
+            DeigmaOrnithopanidaXSpecies deigmaOrnithopanidaXSpecies) {
         if (deigmaOrnithopanidaXSpecies == null) {
             return null;
         }
         DeigmaOrnithopanidaXSpeciesDTO deigmaOrnithopanidaXSpeciesDTO = new DeigmaOrnithopanidaXSpeciesDTO();
 
         deigmaOrnithopanidaXSpeciesDTO.setId(deigmaOrnithopanidaXSpecies.getId());
-        deigmaOrnithopanidaXSpeciesDTO.setDeigmataOrnithopanidasId(deigmaOrnithopanidaXSpecies.getDeigmaOrnithopanida().getId());
+        deigmaOrnithopanidaXSpeciesDTO
+                .setDeigmataOrnithopanidasId(deigmaOrnithopanidaXSpecies.getDeigmaOrnithopanida().getId());
         deigmaOrnithopanidaXSpeciesDTO.setCtEidos(deigmaOrnithopanidaXSpecies.getCtornithopanidaEidi().getEidos());
-     //   deigmaOrnithopanidaXSpeciesDTO.setAadeigmatos(deigmaOrnithopanidaXSpecies.getAadeigmatos());
+        // deigmaOrnithopanidaXSpeciesDTO.setAadeigmatos(deigmaOrnithopanidaXSpecies.getAadeigmatos());
         deigmaOrnithopanidaXSpeciesDTO.setOra(deigmaOrnithopanidaXSpecies.getOra());
         deigmaOrnithopanidaXSpeciesDTO.setXegsa(deigmaOrnithopanidaXSpecies.getXegsa());
         deigmaOrnithopanidaXSpeciesDTO.setYegsa(deigmaOrnithopanidaXSpecies.getYegsa());
@@ -67,7 +66,10 @@ public class DeigmaOrnithopanidaXSpeciesMapperImpl implements DeigmaOrnithopanid
     }
 
     @Override
-    public DeigmaOrnithopanidaXSpeciesAutocompletesDTO mapListsToDeigmaOrnithopanidaXSpeciesAutocompletesDTO(ArrayList<Long> deigmataOrnithopanidasidList, ArrayList<String>CtkodikoseidosList, ArrayList<Long>kodikosList, ArrayList<Long>aadeigmatosList, ArrayList<String>fuloList, ArrayList<String>hliakiaList, ArrayList<String>arithmosatomonList) {
+    public DeigmaOrnithopanidaXSpeciesAutocompletesDTO mapListsToDeigmaOrnithopanidaXSpeciesAutocompletesDTO(
+            ArrayList<Long> deigmataOrnithopanidasidList, ArrayList<String> CtkodikoseidosList,
+            ArrayList<Long> kodikosList, ArrayList<Long> aadeigmatosList, ArrayList<String> fuloList,
+            ArrayList<String> hliakiaList, ArrayList<String> arithmosatomonList) {
         try {
             DeigmaOrnithopanidaXSpeciesAutocompletesDTO deigmaOrnithopanidaXSpeciesAutocompletesDTO = new DeigmaOrnithopanidaXSpeciesAutocompletesDTO();
 
@@ -80,7 +82,7 @@ public class DeigmaOrnithopanidaXSpeciesMapperImpl implements DeigmaOrnithopanid
             deigmaOrnithopanidaXSpeciesAutocompletesDTO.setKodikosList(kodikosList);
 
             return deigmaOrnithopanidaXSpeciesAutocompletesDTO;
-        }catch (Exception e){
+        } catch (Exception e) {
             throw e;
         }
     }

@@ -3,7 +3,6 @@ package com.teicm.kerkinibackend.services.ornithopanida;
 import com.teicm.kerkinibackend.domain.ornithopanida.CTOrnithopanidaPressuresAndThreats;
 import com.teicm.kerkinibackend.domain.ornithopanida.DeigmaOrnithopanida;
 import com.teicm.kerkinibackend.domain.ornithopanida.DeigmaOrnithopanidaXPresAndThreats;
-import com.teicm.kerkinibackend.domain.thhlastika.DeigmaThhlastikwnXPressThreats;
 import com.teicm.kerkinibackend.repositories.ornithopanida.CTOrnithopanidaPressuresAndThreatsRep;
 import com.teicm.kerkinibackend.repositories.ornithopanida.DeigmaOrnithopanidaRep;
 import com.teicm.kerkinibackend.repositories.ornithopanida.DeigmaOrnithopanidaXPresAndThreatsRep;

@@ -9,7 +9,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -17,7 +16,9 @@ import java.util.Optional;
 @Repository
 @Lazy
 @Transactional
-public interface CtThhlastikaPressThreatsRepository extends CrudRepository<CtThhlastikaPressThreats, Long>, JpaRepository<CtThhlastikaPressThreats, Long>, org.springframework.data.repository.Repository<CtThhlastikaPressThreats, Long> {
+public interface CtThhlastikaPressThreatsRepository
+        extends CrudRepository<CtThhlastikaPressThreats, Long>, JpaRepository<CtThhlastikaPressThreats, Long>,
+        org.springframework.data.repository.Repository<CtThhlastikaPressThreats, Long> {
 
     Optional<CtThhlastikaPressThreats> findById(Long id);
 

@@ -1,14 +1,10 @@
 package com.teicm.kerkinibackend.domain.ornithopanida;
 
-import com.teicm.kerkinibackend.domain.thhlastika.DeigmaThhlastikwnXEidh;
-
 import javax.persistence.*;
 import java.sql.Time;
-import java.util.Comparator;
 
 @Entity
-public class DeigmaOrnithopanidaXSpecies
-{
+public class DeigmaOrnithopanidaXSpecies {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,13 +19,12 @@ public class DeigmaOrnithopanidaXSpecies
     @JoinColumn(name = "ctornithopanida_eidi_id")
     private CTOrnithopanidaEidi ctornithopanidaEidi;
 
-
-    @Column(name="kodikos")
+    @Column(name = "kodikos")
     private Long kodikos;
 
-  //  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  //  @Column(name="aaDeigmatos",nullable=false)
-  //  private Long aadeigmatos;
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // @Column(name="aaDeigmatos",nullable=false)
+    // private Long aadeigmatos;
 
     @Column(name = "ora")
     private Time ora;
@@ -67,51 +62,54 @@ public class DeigmaOrnithopanidaXSpecies
     @Column(name = "typosParatiriseis")
     private String typosparatiriseis;
 
-    public DeigmaOrnithopanidaXSpecies(){
+    public DeigmaOrnithopanidaXSpecies() {
 
     }
-    public DeigmaOrnithopanidaXSpecies(Long id,DeigmaOrnithopanida deigmaOrnithopanida,CTOrnithopanidaEidi ctornithopanidaEidi,Long kodikos,  Time ora,Double xegsa,Double yegsa,String fulo, String hlikia,String arithmosatomon, String paratiriseis,Boolean ekpar1,Boolean ekpar2,Boolean ekpar3,String attitude,String typosparatiriseis)
-    {
+
+    public DeigmaOrnithopanidaXSpecies(Long id, DeigmaOrnithopanida deigmaOrnithopanida,
+            CTOrnithopanidaEidi ctornithopanidaEidi, Long kodikos, Time ora, Double xegsa, Double yegsa, String fulo,
+            String hlikia, String arithmosatomon, String paratiriseis, Boolean ekpar1, Boolean ekpar2, Boolean ekpar3,
+            String attitude, String typosparatiriseis) {
         this.id = id;
-        this.deigmaOrnithopanida=deigmaOrnithopanida;
-        this.ctornithopanidaEidi=ctornithopanidaEidi;
+        this.deigmaOrnithopanida = deigmaOrnithopanida;
+        this.ctornithopanidaEidi = ctornithopanidaEidi;
         this.kodikos = kodikos;
-        //    this.aadeigmatos=aadeigmatos;
-        this.ora=ora;
-        this.xegsa=xegsa;
-        this.yegsa=yegsa;
-        this.fulo=fulo;
-        this.hlikia=hlikia;
-        this.arithmosatomon=arithmosatomon;
-        this.paratiriseis=paratiriseis;
-        this.ekpar1=ekpar1;
-        this.ekpar2=ekpar2;
-        this.ekpar3=ekpar3;
-        this.attitude=attitude;
-        this.typosparatiriseis=typosparatiriseis;
+        // this.aadeigmatos=aadeigmatos;
+        this.ora = ora;
+        this.xegsa = xegsa;
+        this.yegsa = yegsa;
+        this.fulo = fulo;
+        this.hlikia = hlikia;
+        this.arithmosatomon = arithmosatomon;
+        this.paratiriseis = paratiriseis;
+        this.ekpar1 = ekpar1;
+        this.ekpar2 = ekpar2;
+        this.ekpar3 = ekpar3;
+        this.attitude = attitude;
+        this.typosparatiriseis = typosparatiriseis;
     }
 
-    public DeigmaOrnithopanidaXSpecies(DeigmaOrnithopanida deigmaOrnithopanida,CTOrnithopanidaEidi ctornithopanidaEidi,Long kodikos,  Time ora,Double xegsa,Double yegsa,String fulo, String hlikia,String arithmosatomon, String paratiriseis,Boolean ekpar1,Boolean ekpar2,Boolean ekpar3,String attitude,String typosparatiriseis)
-    {
-        this.deigmaOrnithopanida=deigmaOrnithopanida;
-        this.ctornithopanidaEidi=ctornithopanidaEidi;
+    public DeigmaOrnithopanidaXSpecies(DeigmaOrnithopanida deigmaOrnithopanida, CTOrnithopanidaEidi ctornithopanidaEidi,
+            Long kodikos, Time ora, Double xegsa, Double yegsa, String fulo, String hlikia, String arithmosatomon,
+            String paratiriseis, Boolean ekpar1, Boolean ekpar2, Boolean ekpar3, String attitude,
+            String typosparatiriseis) {
+        this.deigmaOrnithopanida = deigmaOrnithopanida;
+        this.ctornithopanidaEidi = ctornithopanidaEidi;
         this.kodikos = kodikos;
-    //    this.aadeigmatos=aadeigmatos;
-        this.ora=ora;
-        this.xegsa=xegsa;
-        this.yegsa=yegsa;
-        this.fulo=fulo;
-        this.hlikia=hlikia;
-        this.arithmosatomon=arithmosatomon;
-        this.paratiriseis=paratiriseis;
-        this.ekpar1=ekpar1;
-        this.ekpar2=ekpar2;
-        this.ekpar3=ekpar3;
-        this.attitude=attitude;
-        this.typosparatiriseis=typosparatiriseis;
+        // this.aadeigmatos=aadeigmatos;
+        this.ora = ora;
+        this.xegsa = xegsa;
+        this.yegsa = yegsa;
+        this.fulo = fulo;
+        this.hlikia = hlikia;
+        this.arithmosatomon = arithmosatomon;
+        this.paratiriseis = paratiriseis;
+        this.ekpar1 = ekpar1;
+        this.ekpar2 = ekpar2;
+        this.ekpar3 = ekpar3;
+        this.attitude = attitude;
+        this.typosparatiriseis = typosparatiriseis;
     }
-
-
 
     public Long getId() {
         return id;
@@ -129,13 +127,13 @@ public class DeigmaOrnithopanidaXSpecies
         this.kodikos = kodikos;
     }
 
-  //  public Long getAadeigmatos() {
-  //      return aadeigmatos;
-//    }
+    // public Long getAadeigmatos() {
+    // return aadeigmatos;
+    // }
 
-   // public void setAadeigmatos(Long aadeigmatos) {
-  //      this.aadeigmatos = aadeigmatos;
-  //  }
+    // public void setAadeigmatos(Long aadeigmatos) {
+    // this.aadeigmatos = aadeigmatos;
+    // }
 
     public Time getOra() {
         return ora;

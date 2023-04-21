@@ -1,7 +1,6 @@
 package com.teicm.kerkinibackend.domain;
 
 import com.teicm.kerkinibackend.domain.thhlastika.DeigmaThhlastikwn;
-
 import javax.persistence.*;
 
 // It will have bidirectional connections with all the Deigma domains (same as Deigmata)

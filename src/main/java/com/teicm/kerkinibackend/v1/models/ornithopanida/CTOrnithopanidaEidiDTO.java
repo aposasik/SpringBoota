@@ -1,19 +1,17 @@
 package com.teicm.kerkinibackend.v1.models.ornithopanida;
 
-
 //import lombok.Data;
 
 //@Data
-public class CTOrnithopanidaEidiDTO
-{
+public class CTOrnithopanidaEidiDTO {
     private String eidos;
 
-    public CTOrnithopanidaEidiDTO(){}
+    public CTOrnithopanidaEidiDTO() {
+    }
 
     public CTOrnithopanidaEidiDTO(String eidos) {
         this.eidos = eidos;
     }
-
 
     public String getEidos() {
         return eidos;

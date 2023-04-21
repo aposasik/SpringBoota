@@ -2,7 +2,6 @@ package com.teicm.kerkinibackend.domain;
 
 import com.teicm.kerkinibackend.domain.ornithopanida.DeigmaOrnithopanida;
 import com.teicm.kerkinibackend.domain.thhlastika.DeigmaThhlastikwn;
-
 import javax.persistence.*;
 import java.util.Comparator;
 

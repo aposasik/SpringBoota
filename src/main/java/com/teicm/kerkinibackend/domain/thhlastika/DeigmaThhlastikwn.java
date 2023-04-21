@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.teicm.kerkinibackend.domain.Deigmata;
 import com.teicm.kerkinibackend.domain.Files;
 import com.teicm.kerkinibackend.domain.Pictures;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;

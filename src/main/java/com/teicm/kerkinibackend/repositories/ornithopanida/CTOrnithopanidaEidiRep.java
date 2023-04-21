@@ -1,10 +1,7 @@
 package com.teicm.kerkinibackend.repositories.ornithopanida;
 
 import java.util.ArrayList;
-import java.util.Optional;
-
 import com.teicm.kerkinibackend.domain.ornithopanida.CTOrnithopanidaEidi;
-
 import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

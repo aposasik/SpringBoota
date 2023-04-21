@@ -1,9 +1,7 @@
 package com.teicm.kerkinibackend.services.ornithopanida;
 
 import com.teicm.kerkinibackend.domain.ornithopanida.DeigmaOrnithopanidaXSpecies;
-import com.teicm.kerkinibackend.domain.thhlastika.DeigmaThhlastikwnXEidh;
 import com.teicm.kerkinibackend.v1.models.ornithopanida.DeigmaOrnithopanidaXSpeciesDTO;
-import com.teicm.kerkinibackend.v1.models.thhlastika.DeigmaThhlastikwnXEidhDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 

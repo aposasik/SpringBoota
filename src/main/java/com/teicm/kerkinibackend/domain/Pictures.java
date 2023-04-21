@@ -1,8 +1,6 @@
 package com.teicm.kerkinibackend.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.teicm.kerkinibackend.domain.thhlastika.DeigmaThhlastikwn;
-
 import javax.persistence.*;
 
 @Entity

@@ -1,7 +1,6 @@
 package com.teicm.kerkinibackend.controllers.ornithopanida;
 
 import com.teicm.kerkinibackend.domain.ornithopanida.DeigmaOrnithopanidaXSpecies;
-import com.teicm.kerkinibackend.domain.thhlastika.DeigmaThhlastikwnXEidh;
 import com.teicm.kerkinibackend.services.ornithopanida.DeigmaOrnithopanidaXSpeciesServiceImpl;
 import com.teicm.kerkinibackend.v1.models.ornithopanida.DeigmaOrnithopanidaXSpeciesDTO;
 import org.springframework.beans.factory.annotation.Autowired;
